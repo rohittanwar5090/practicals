@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>On Load</title>
+</head>
+ <style>
+      body {
+        transition: background-color 2s;
+      }
+    </style>
+<body onload="onloading()">
+
+</body>
+<script type="text/javascript">
+var colors = [ "RED", "blue"];
+var currentIndex = 0;
+
+const onloading = () => {
+	console.log("Loading Complete")
+
+setInterval(function () {
+    document.body.style.cssText = "background-color: " + colors[currentIndex];
+    currentIndex++;
+    if (currentIndex == undefined || currentIndex >= colors.length) {
+        currentIndex = 0;
+    }
+}, 1000);
+}
+
+</script>
+
+</html>

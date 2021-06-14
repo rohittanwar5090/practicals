@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Calculator</title>
+</head>
+<style type="text/css">
+	form{
+	width:440px;
+	padding:25px;
+	margin:auto;
+	}
+ 
+	input{
+	background:linear-gradient(45deg, rgb(7, 204, 194), rgb(47, 47, 122));
+	color:#fff;
+	font-size:15px;
+	padding-top:15px;
+	padding-bottom:15px;
+	padding-left:19px;
+	padding-right:19px;
+	margin:6px;
+	}
+ 
+	h2{
+	text-align:center;
+	}
+ 
+	.sc{background: #448f32;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to top, #1D2671, #00000067);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to top, #c5c7db, #1773a8); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+	color:#fff;
+	}
+</style>
+<body>
+<h2>SCIENTIFIC CALCULATOR</h2>
+<br />
+<br />
+<form name="sci-calc">
+
+<table cellspacing="0" cellpadding="1">
+<TR>
+<TD COLSPAN="5" ALIGN="center"><input NAME="display" class="sc" VALUE="0" SIZE="44" MAXLENGTH="25"></TD>
+</TR>
+<TR>                                  
+<td align="center"><input type="button" value="Clear" ONCLICK="this.form.display.value = 0 "></TD>
+<td align="center" colspan="2"><input type="button" value="      Backspace     " ONCLICK="deleteChar(this.form.display)"></TD>
+<td align="center" colspan="2"><input type="button" value="           Enter          " NAME="Enter" ONCLICK="if (checkNum(this.form.display.value)) { compute(this.form) }"></TD>
+</TR> 
+<TR>
+<td align="center"><input type="button" value=" exp " ONCLICK="if (checkNum(this.form.display.value)) { exp(this.form) }"></TD>
+<td align="center"><input type="button" value="  7  " ONCLICK="addChar(this.form.display, '7')"></TD>
+<td align="center"><input type="button" value="  8  " ONCLICK="addChar(this.form.display, '8')"></TD>
+<td align="center"><input type="button" value="  9  " ONCLICK="addChar(this.form.display, '9')"></TD>
+<td align="center"><input type="button" value="   /   " ONCLICK="addChar(this.form.display, '/')"></TD>
+</TR>                                  
+<TR>                                   
+<td align="center"><input type="button" value="  ln   " ONCLICK="if (checkNum(this.form.display.value)) { ln(this.form) }"></TD>
+<td align="center"><input type="button" value="  4  " ONCLICK="addChar(this.form.display, '4')"></TD>
+<td align="center"><input type="button" value="  5  " ONCLICK="addChar(this.form.display, '5')"></TD>
+<td align="center"><input type="button" value="  6  " ONCLICK="addChar(this.form.display, '6')"></TD>
+<td align="center"><input type="button" value="   *   " ONCLICK="addChar(this.form.display, '*')"></TD>
+</TR>                                   
+<TR>                                    
+<td align="center"><input type="button" value=" sqrt " ONCLICK="if (checkNum(this.form.display.value)) { sqrt(this.form) }"></TD>
+<td align="center"><input type="button" value="  1  " ONCLICK="addChar(this.form.display, '1')"></TD>
+<td align="center"><input type="button" value="  2  " ONCLICK="addChar(this.form.display, '2')"></TD>
+<td align="center"><input type="button" value="  3  " ONCLICK="addChar(this.form.display, '3')"></TD>
+<td align="center"><input type="button" value="   -   " ONCLICK="addChar(this.form.display, '-')"></TD>
+</TR>                                  
+<TR>                                   
+<td align="center"><input type="button" value="  sq  " ONCLICK="if (checkNum(this.form.display.value)) { square(this.form) }"></TD>
+<td align="center"><input type="button" value="  0  " ONCLICK="addChar(this.form.display, '0')"></TD>
+<td align="center"><input type="button" value="   .  " ONCLICK="addChar(this.form.display, '.')"></TD>
+<td align="center"><input type="button" value=" +/- " ONCLICK="changeSign(this.form.display)"></TD>
+<td align="center"><input type="button" value="   +  " ONCLICK="addChar(this.form.display, '+')"></TD>
+</TR>                                  
+<TR>                                   
+<td align="center"><input type="button" value="   (    " ONCLICK="addChar(this.form.display, '(')"></TD>
+<td align="center"><input type="button" value="cos" ONCLICK="if (checkNum(this.form.display.value)) { cos(this.form) }"></TD>
+<td align="center"><input type="button" value=" sin " ONCLICK="if (checkNum(this.form.display.value)) { sin(this.form) }"></TD>
+<td align="center"><input type="button" value=" tan" ONCLICK="if (checkNum(this.form.display.value)) { tan(this.form) }"></TD>
+<td align="center"><input type="button" value="   )   " ONCLICK="addChar(this.form.display, ')')"></TD>
+</TR>                                 
+ 
+</table>
+</form>
+
+</body>
+<script type="text/javascript">
+	function addChar(input, character) {
+	if(input.value == null || input.value == "0")
+		input.value = character
+	else
+		input.value += character
+}
+ 
+function cos(form) {
+	form.display.value = Math.cos(form.display.value);
+}
+ 
+function sin(form) {
+	form.display.value = Math.sin(form.display.value);
+}
+ 
+function tan(form) {
+	form.display.value = Math.tan(form.display.value);
+}
+ 
+function sqrt(form) {
+	form.display.value = Math.sqrt(form.display.value);
+}
+ 
+function ln(form) {
+	form.display.value = Math.log(form.display.value);
+}
+ 
+function exp(form) {
+	form.display.value = Math.exp(form.display.value);
+}
+ 
+function deleteChar(input) {
+	input.value = input.value.substring(0, input.value.length - 1)
+}
+ 
+function changeSign(input) {
+	if(input.value.substring(0, 1) == "-")
+		input.value = input.value.substring(1, input.value.length)
+	else
+		input.value = "-" + input.value
+}
+ 
+function compute(form) {
+	form.display.value = eval(form.display.value)
+}
+ 
+function square(form) {
+	form.display.value = eval(form.display.value) * eval(form.display.value)
+}
+ 
+function checkNum(str) {
+	for (var i = 0; i < str.length; i++) {
+		var ch = str.substring(i, i+1)
+		if (ch < "0" || ch > "9") {
+			if (ch != "/" && ch != "*" && ch != "+" && ch != "-" && ch != "."
+				&& ch != "(" && ch!= ")") {
+				alert("invalid entry!")
+				return false
+				}
+			}
+		}
+		return true
+}
+</script>
+</html>

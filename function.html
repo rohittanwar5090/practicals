@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JavaScript Function</title>
+</head>
+<body>
+	<h1 id="foo">JavaScript Fuctions</h1>
+</body>
+<script type="text/javascript">
+element = document.getElementById("foo")
+
+const Takeinput = () => {
+    i = prompt("Enter the String or an Integer")
+    type = isNaN(parseInt(i))  ? "string" : "int"
+
+ 	if(type === "string"){
+ 		if(i.search(/[aeiou]/i) === -1){
+ 			element.innerHTML = "Not Found"
+ 			return	
+ 		}
+ 		 element.innerHTML = "The position in the string of the left-most vowel is: " + (i.search(/[aeiou]/i) + 1)
+ 	}else if(type === "int") {
+ 		  element.innerHTML = "The number with its digits in the reverse order is: " + i.split("").reverse().join("")
+
+ 	}   
+}
+
+Takeinput()
+
+
+</script>
+</html>

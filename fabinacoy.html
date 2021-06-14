@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fibonacci</title>
+</head>
+<body>
+    <h1 id="foo"></h1>
+    <button onclick="Fibonacci()">Find Fibonacci</button>
+        <p id="pPrint"></p>
+
+    <button onclick="printTable()">Print Table</button>
+</body>
+<script type="text/javascript">
+    function Fibonacci(){
+
+        num = prompt("Enter the Number")
+        num = parseInt(num)
+        var num1=0;
+        var num2=1;
+        var sum;
+        var i=0;
+        for (i = 1; i < num; i++) 
+        {
+            sum=num1+num2;
+            num1=num2;
+            num2=sum;
+        }
+        alert(sum)
+        document.getElementById("foo").innerHTML = `Fibonacci = ${sum}`
+    }
+
+    function printTable(){
+                var num;
+                num = prompt("Enter the Number")
+        num = parseInt(num)
+                
+                alert(num*num)
+                for(var i=1; i<=10; i++){
+                    var pTag= document.getElementById('pPrint');
+                    pTag.innerHTML += `${num} * ${i} =  ${(num*i)}` + "<br/>" 
+                }
+            }
+</script>
+</html>
